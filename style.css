@@ -152,7 +152,8 @@ nav a:hover::after {
 /* Hero Section */
 
 .hero {
-    height: calc(100vh-80px);
+    /* Tuzatildi: "100vh-80px" bo'sh joysiz yozilgani uchun brauzer bu qatorni e'tiborsiz qoldirardi */
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     position: relative;
@@ -499,5 +500,117 @@ footer {
     to {
         opacity: 1;
         opacity: translateY(0);
+    }
+}
+/* Footer: oldin inline style'da var(coffee-accent) xato yozilgan edi */
+.footer-about {
+    color: var(--coffee-accent);
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: inherit;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--coffee-gold);
+    outline-offset: 3px;
+}
+
+/* ---------- Planshet va telefon (oldin moslashuv umuman yo'q edi) ---------- */
+@media (max-width: 960px) {
+    .header-container {
+        flex-wrap: wrap;
+        row-gap: 6px;
+    }
+
+    /* Menyu alohida qatorda, kerak bo'lsa gorizontal aylantiriladi */
+    nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    nav ul {
+        gap: 22px;
+        white-space: nowrap;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    .hero {
+        padding-top: 140px;
+    }
+
+    .hero .container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 30px;
+    }
+
+    .hero-text {
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .products {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .logo-text,
+    .logo-icon {
+        font-size: 22px;
+    }
+
+    .nav-button .btn-secondary {
+        display: none;
+    }
+
+    .nav-button .btn {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .hero-buttons {
+        flex-wrap: wrap;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
